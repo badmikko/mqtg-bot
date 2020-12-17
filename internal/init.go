@@ -38,11 +38,6 @@ func InitTelegramBot() *TelegramBot {
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
-	
-	apiEndpoint := os.Getenv("TELEGRAM_API_ENDPOINT")
-	if apiEndpoint != "" {
-		botApi.SetAPIEndpoint(apiEndpoint)
-	}
 
 	bot := &TelegramBot{
 		BotAPI:          botApi,
@@ -51,6 +46,11 @@ func InitTelegramBot() *TelegramBot {
 		metrics:         InitPrometheusMetrics(),
 		wg:              &sync.WaitGroup{},
 		shutdownChannel: make(chan interface{}),
+	}
+	
+	apiEndpoint := os.Getenv("TELEGRAM_API_ENDPOINT")
+	if apiEndpoint != "" {
+		bot.SetAPIEndpoint(apiEndpoint)
 	}
 
 	if os.Getenv("BOT_DEBUG") == "true" {
