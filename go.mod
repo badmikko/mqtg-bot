@@ -5,7 +5,7 @@ go 1.15
 require (
 	github.com/blend/go-sdk v1.1.1 // indirect
 	github.com/eclipse/paho.mqtt.golang v1.2.0
-	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.0.1
+	github.com/go-telegram-bot-api/telegram-bot-api/v5 master
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/golang/protobuf v1.4.2
 	github.com/jackc/pgx/v4 v4.9.2 // indirect
