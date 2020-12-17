@@ -50,7 +50,7 @@ func InitTelegramBot() *TelegramBot {
 	
 	apiEndpoint := os.Getenv("TELEGRAM_API_ENDPOINT")
 	if apiEndpoint != "" {
-		bot.SetAPIEndpoint(apiEndpoint)
+		botApi.SetAPIEndpoint(apiEndpoint)
 	}
 
 	if os.Getenv("BOT_DEBUG") == "true" {
