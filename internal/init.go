@@ -35,7 +35,8 @@ func InitTelegramBot() *TelegramBot {
 	}
 	
 	apiEndpoint := os.Getenv("TELEGRAM_API_ENDPOINT")
-	var botApi *BotAPI
+	var botApi *tgbotapi.BotAPI
+	var err error
 	if apiEndpoint == "" {
 		botApi, err = tgbotapi.NewBotAPI(token)
 		if err != nil {
