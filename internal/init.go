@@ -33,22 +33,16 @@ func InitTelegramBot() *TelegramBot {
 	if token == "" {
 		log.Fatalf("TELEGRAM_BOT_TOKEN does not set")
 	}
+
+	botApi, err := tgbotapi.NewBotAPI(token)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
 	
 	apiEndpoint := os.Getenv("TELEGRAM_API_ENDPOINT")
-	var botApi *tgbotapi.BotAPI
-	var err error
-	if apiEndpoint == "" {
-		botApi, err = tgbotapi.NewBotAPI(token)
-		if err != nil {
-			log.Fatalf(err.Error())
-		}
-	} else {
-		botApi, err = tgbotapi.NewBotAPIWithAPIEndpoint(token, apiEndpoint)
-		if err != nil {
-			log.Fatalf(err.Error())
-		}
+	if apiEndpoint != "" {
+		botApi.SetAPIEndpoint(apiEndpoint)
 	}
-
 
 	bot := &TelegramBot{
 		BotAPI:          botApi,
