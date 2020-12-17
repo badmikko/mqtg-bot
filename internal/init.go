@@ -1,7 +1,7 @@
 package internal
 
 import (
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/bot-api-5.0"
 	"github.com/prometheus/client_golang/prometheus"
 	"gorm.io/gorm"
 	"log"
